@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 排障产物（绝不能提交 —— 可能含 MBR 镜像、密钥、机器信息）
+*.bin
+mbr_backup_*.bin
+vbr_*.bin
+cmap.json
+*_log.txt
+probe_output*.txt
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
