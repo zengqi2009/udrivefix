@@ -1,8 +1,8 @@
-# usb-fault-rescue
+# udrivefix
 
 > Windows 下 U 盘 / 移动硬盘「不可写入、只读、无法识别、容量异常、文件系统损坏」故障的**分层诊断与救援**技能。
 
-一个 WorkBuddy Skill，同时可用作独立诊断手册。
+一个 WorkBuddy Skill（内部代号 `usb-fault-rescue`），同时可用作独立诊断手册。
 
 ---
 
@@ -105,7 +105,7 @@ DEVPKEY_Device_LastRemovalDate   → 停在很久以前 = 注册表幽灵节点
 ## 目录结构
 
 ```
-usb-fault-rescue/
+udrivefix/
 ├── SKILL.md                      # 技能定义：分层判定树 + 执行流程 + 反模式清单
 ├── references/
 │   ├── probe_recipes.md          # 可复制的探测片段（PnP 身份/写测试/exFAT 解析/chkdsk）
@@ -115,6 +115,28 @@ usb-fault-rescue/
     ├── backup_mbr.py             # MBR 备份/还原
     └── fix_filelayer.py          # 厂商过滤层装卸与校验
 ```
+
+---
+
+## 安装
+
+**方式一：WorkBuddy 技能市场**
+
+在 WorkBuddy 中搜索「U盘故障诊断与救援」安装，或直接下载本仓库的
+`usb-fault-rescue.zip` 解压到 `~/.workbuddy/skills/usb-fault-rescue/`。
+
+**方式二：克隆后手动安装**
+
+```bash
+git clone git@github.com:zengqi2009/udrivefix.git
+# 把 SKILL.md / references/ / scripts/ 三个目录整体复制到
+# ~/.workbuddy/skills/usb-fault-rescue/ 即可被 WorkBuddy 识别
+```
+
+**方式三：纯命令行使用（无需安装技能）**
+
+直接克隆本仓库，把 `scripts/probe.py` 当作独立诊断工具跑：
+`python scripts/probe.py --disk 1 --write`。
 
 ---
 
